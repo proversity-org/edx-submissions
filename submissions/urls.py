@@ -9,6 +9,6 @@ urlpatterns = patterns(
     ),
     url(
         r'^v1/submissions/(?P<student_id>[^/]+)/(?P<course_id>[^/]+)/(?P<item_id>[^/]+)$',
-        StudentSubmissionsDetailView.as_view({'get': 'get'}, name="student-submissions-detail")
+        StudentSubmissionsDetailView.as_view({'get': 'get'}), name="student-submissions-detail")
     ),
 )
