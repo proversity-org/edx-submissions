@@ -72,13 +72,17 @@ class StudentSubmissionsDetailView(ViewSet):
     authentication_classes = (OAuth2Authentication,)
     permission_classes = (IsAuthenticated,)
 
-    def get(self, request, student_id, course_id, item_id):
+    def get(self, request, student_id, course_id, item_type, item_id):
         try:
             student_item_dict = dict(
                 course_id=course_id,
                 student_id=student_id,
                 item_id=item_id,
+                item_type=item_type
             )
+
+            print "get api submissions"
+            print student_item_dict
 
             submissions = get_submissions(student_item_dict)
             return Response(submissions)

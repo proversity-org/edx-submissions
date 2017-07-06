@@ -353,6 +353,8 @@ def get_submissions(student_item_dict, limit=None):
 
     """
     student_item_model = _get_or_create_student_item(student_item_dict)
+    print "get_submissions"
+    print student_item_model
     try:
         submission_models = Submission.objects.filter(
             student_item=student_item_model)
@@ -367,6 +369,7 @@ def get_submissions(student_item_dict, limit=None):
     if limit:
         submission_models = submission_models[:limit]
 
+    print submission_models
     return SubmissionSerializer(submission_models, many=True).data
 
 
