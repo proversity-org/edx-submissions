@@ -81,9 +81,6 @@ class StudentSubmissionsDetailView(ViewSet):
                 item_type=item_type
             )
 
-            print "get api submissions"
-            print student_item_dict
-
             submissions = get_submissions(student_item_dict)
             return Response(submissions)
         except SubmissionRequestError:
